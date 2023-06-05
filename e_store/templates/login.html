@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block metadescription %}
+{% endblock %}
+
+{% block title %} Login {% endblock %}
+
+
+{% block body %}
+
+<div class="login-form">
+
+    <form action="" method="POST">
+        <h2>LOG IN</h2>
+
+        {% for message in messages %}
+        <div class="messages" style="font-size: 1.5rem;">
+            {{ message }}
+        </div>
+        {% endfor %}
+
+        {% csrf_token %}
+
+        {{ form }}
+
+        <br>
+        <div class="d-grid">
+            <button class="btn btn-primary" type="submit">SignIn</button>
+        </div>
+    </form>
+
+</div>
+
+{% endblock %}

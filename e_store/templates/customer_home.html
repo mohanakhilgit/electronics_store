@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block metadescription %}
+{% endblock %}
+
+{% block title %} User | {{ user.username }} {% endblock %}
+
+
+{% block body %}
+
+<h1>User | {{ user.username }}</h1>
+<hr>
+
+<a class="btn btn-primary" href="{% url 'website:products_list' %}">All Products</a>
+
+{% endblock %}

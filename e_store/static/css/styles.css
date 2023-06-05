@@ -1,0 +1,126 @@
+body {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 500;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: #54B435;
+}
+
+a:hover {
+    color: #FF7000;
+}
+
+.navbar {
+    text-transform: uppercase;
+    line-height: 1.5;
+    letter-spacing: .1em;
+}
+
+.nav-item {
+    padding: 0 6px;
+}
+
+.card {
+    border: none;
+    padding: 5px;
+}
+
+.product:hover {
+    border: solid 1px #CCD6A6;
+    background-color: #E8F3D6;
+}
+
+.product-img {
+    width: 200px;
+    height: 300px;
+}
+
+.products-col {
+    padding: 20px 10px;
+}
+
+
+/* ---product page--- */
+
+.product-page {
+    margin-bottom: 50px;
+}
+
+
+h2 {
+    font-weight: 600;
+    text-decoration: solid;
+}
+
+a {
+    color: darkorange;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+a:hover {
+    color:darkblue;
+    text-decoration: underline;
+}
+
+/* ---index.html--- */
+
+.home-card{
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* ---register.html--- */
+
+.register-form {
+    margin-top: 2%;
+}
+
+.register-form, .login-form {
+    text-transform: uppercase;
+    width: 50%;
+    background-color: rgba(101, 136, 100, 0.6);
+    border-radius: 20px;
+    padding: 20px;
+    color: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%)
+}
+
+.register-form h2, .login-form h2 {
+    text-align: center;
+    font-size: 3rem;
+}
+
+.messages {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.username {
+    margin-left: 20px;
+    color: #7B2869;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+
+

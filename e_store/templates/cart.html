@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+{% block metadescription %}
+{% endblock %}
+
+{% block title %} User | {{ user.username }} {% endblock %}
+
+
+{% block body %}
+
+{% if not cart_items %}
+<div>
+    <div class="text-center">
+        <br>
+        <h1 class="text-center">
+            Cart is Empty.
+        </h1>
+        <br>
+        {% for message in messages %}
+        <div class="messages" style="font-size: 1.5rem; color:green">
+            {{ message }}
+        </div>
+        {% endfor %}
+        <p class="text-center">
+            <a href="{% url 'website:products_list' %}">Continue Shopping</a>
+        </p>
+    </div>
+
+</div>
+{% else %}
+<div>
+    <div class="text-center">
+        <br>
+        <h1 class="text-center">
+            Your Cart
+        </h1>
+        <br>
+        {% for message in messages %}
+        <div class="messages" style="font-size: 1.5rem; color:green">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="row mx-auto">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-7 text-center">
+        <table class="table">
+            <thead class="table-success">
+                <tr>
+                    <th colspan="5">Your Items</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart_items %}
+                <tr>
+                    <td>
+                        <!-- <a href="item.product.get_absolute_url"> -->
+                        <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}"
+                            style="width: 100px; height: 200px;">
+                        </a>
+                    </td>
+                    <td class="text-left">
+                        <h2>{{ item.product.name }}</h2>
+                        <br>
+                        Price: ₹{{ item.product.price }}
+                        <br>
+                        Qty : {{ item.quantity }} x {{ item.product.name }}
+                    </td>
+                    <td>
+                        {{ item.sub_total }}
+                    </td>
+                    {% if item.quantity < item.product.stock %} <td><a
+                            href="{% url 'website:add_item' item.product.id %}"><i class="fa-solid fa-plus"></i></a>
+                        &nbsp;<a href="{% url 'website:remove_item' item.product.id %}"><i
+                                class="fa-solid fa-minus"></i></a>
+                        &nbsp;<a href="{% url 'website:full_remove' item.product.id %}"><i
+                                class="fa-solid fa-trash"></i></a>
+                        </td>
+                        {% else %}
+                        <td>
+                            <a href="{% url 'website:remove_item' item.product.id %}"><i
+                                    class="fa-solid fa-minus"></i></a>
+                            &nbsp;<a href="{% url 'website:full_remove' item.product.id %}"><i
+                                    class="fa-solid fa-trash"></i></a>
+                        </td>
+                        {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-5 text-center">
+        <table class="table">
+            <thead class="table-success">
+                <tr>
+                    <th>Checkout</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Please review your cart items before proceeding with the order payment.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Your Total : {{ total }}</strong></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="mx-auto">
+            <a href="{% url 'website:place_order' total %}" class="btn btn-success">Place Order</a>
+            <a href="{% url 'website:products_list' %}" class="btn btn-primary">Continue Shopping</a>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}

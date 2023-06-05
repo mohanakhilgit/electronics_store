@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block metadescription %}
+{% endblock %}
+
+{% block title %} E-Store {% endblock %}
+
+
+{% block body %}
+
+<div class="container-fluid home-card">
+
+    <div class="row">
+
+        <div class="shadow col-md-12">
+            <div class="card-body">
+                <h1>WELCOME</h1>
+                {% if user.is_authenticated %}
+                <div>
+                    {% for message in messages %}
+                    <div class="messages">
+                        <h4 style="color: red; font-size: 1.5rem;">{{ message }}</h4>
+                    </div>
+                    {% endfor %}
+                    <div>
+                        <a href="{% url 'website:home' %}">Return to User Home</a>
+                    </div>
+                </div>
+                {% else %}
+                <div>
+                    <a href="{% url 'website:register' %}" class="btn btn-outline-primary">Register</a>
+                    <a href="{% url 'website:log_in' %}" class="btn btn-outline-success">LogIn</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

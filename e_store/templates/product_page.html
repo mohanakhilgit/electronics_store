@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block metadescription %}
+{% endblock %}
+
+{% block title %} Product | {{ product.name }} {% endblock %}
+
+
+{% block body %}
+
+<div class="product-page container">
+    <div class="row">
+        <h1 style="text-transform: uppercase;">{{ product.name }}</h1>
+        <p>₹{{ product.price }}</p>
+        <hr>
+        <div class="card shadow col-md-4">
+            <div>
+                <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}">
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="product-description">
+
+                <h4>Product Description</h4>
+                <p>{{ product.description }}</p>
+                
+
+                {% if product.stock <= 0 %} <p><b>Out of Stock</b></p>
+                {% else %}  
+
+                    <div>
+                        <a class="btn btn-primary" href="{% url 'website:add_item' product.id %}">Order</a>
+                    </div>
+
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+
+
+    <a href="{% url 'website:products_list' %}">Return to Products Page</a>
+
+
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block metadescription %}
+{% endblock %}
+
+{% block title %} User | {{ user.username }} {% endblock %}
+
+
+{% block body %}
+
+<h1>User | {{ user.username }}</h1>
+<hr>
+
+<div class="container">
+
+
+
+    <h2>All Products</h2>
+
+    <div class="row text-center mx-auto">
+        {% for product in products %}
+        {% if product.stock > 0 %}
+        <div class="text-center col-md-4 mx-auto">
+            <a href="{% url 'website:product_detail' product.id %}">
+                <div class="product card shadow" style="width: 10rem;">
+                    <div>
+                        <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.image }}">
+                    </div>
+                    <h4>{{ product.name }}</h4>
+                    PRICE: {{ product.price }}<br>
+                    
+
+                </div>
+            </a>
+
+        </div>
+        {% endif %}
+        {% endfor %}
+        
+    </div>
+</div>
+
+{% endblock %}

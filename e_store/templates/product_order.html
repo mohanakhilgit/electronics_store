@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block metadescription %}
+{% endblock %}
+
+{% block title %} Orders {% endblock %}
+
+
+{% block body %}
+
+<h1>Orders</h1>
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Order ID</th>
+                <th scope="col">User</th>
+                <th scope="col">Product</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Date</th>
+            </tr>
+        </thead>
+        {% for key, order in orders.items %}
+        <tbody>
+            <tr>
+                <th scope="row">{{ key }}</th>
+                <td>{{ order.User }}</td>
+                <td>{{ order.Product }}</td>
+                <td>{{ order.Quantity }}</td>
+                <td>{{ order.Date }}</td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+    <a href="{% url 'website:admin' %}">Return to Admin Page</a>
+</div>
+
+{% endblock %}

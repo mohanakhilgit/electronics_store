@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block metadescription %}
+{% endblock %}
+
+{% block title %} Edit {% endblock %}
+
+
+{% block body %}
+
+<div class="container">
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button class="btn btn-primary" type="submit">Proceed</button>
+
+    </form>
+</div>
+
+{% endblock %}

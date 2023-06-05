@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block metadescription %}
+{% endblock %}
+
+{% block title %} Delete | {{ product.name }} {% endblock %}
+
+
+{% block body %}
+
+<div class="container shadow" style="width: 30%;">
+    <form action="" method="post">
+        {% csrf_token %}
+
+        <p><b>Are you sure you want to delete <span style="color:darkgreen; font-size: 30px;">{{ product.name }}</span> ?</b></p>
+        <div>
+        <button class="btn btn-danger" type="submit">Delete</button>
+        <a class="btn btn-success" href="{% url 'website:admin' %}">Cancel</a>
+    </form>
+
+</div>
+
+{% endblock %}
